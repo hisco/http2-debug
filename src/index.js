@@ -73,7 +73,9 @@ class Http2Debug{
             
         });
 
-        this.serverSocket = server.listen(config.port , config.host);
+        this.serverSocket = server.listen(config.port , config.host , ()=>{
+            console.log(`http-debug should be working on https://${config.host}:${config.port}`)
+        });
     }
     stopServer(){
         if (this.serverSocket)
