@@ -15,7 +15,7 @@ It returns in the response body the following information:
 
 With this information you will be able to see if the desired information was sent from your service.
 
-It's also very helpfull for HTTP2 load balancer testing.
+It's also very helpful for HTTP2 load balancer testing.
 You can use it to test kubernetes ingress / docker LB + http2.
 
 ## Local usage
@@ -24,7 +24,7 @@ To check your node version run on your terminal / CMD the fllowing command:
 ```
 node -v 
 ```
-Http2 was added to Node.js on v8.4.0 .
+Http2 was added to Node.js only on later versions of >v8.5 .
 If you need to upgrade or install Node.js got to:
 [Download page of Node.js ](https://nodejs.org/en/download/)
 

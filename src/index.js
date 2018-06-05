@@ -67,7 +67,7 @@ class Http2Debug{
                     headers,
                     body
                 },null, 2);
-                console.log(`<Request #${i}>`,result )
+                console.log(`<Request #${i++}>`,result )
                 stream.end(result);
             })
             
@@ -75,7 +75,8 @@ class Http2Debug{
 
         this.serverSocket = server.listen(config.port , config.host , ()=>{
             console.log(`http-debug should be working on https://${config.host}:${config.port}`);
-            cb();
+            if (cb)
+                cb();
         });
     }
     stopServer(){
