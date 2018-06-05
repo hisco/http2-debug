@@ -1,0 +1,36 @@
+{
+  "name": "http2-debug",
+  "version": "0.0.1",
+  "description": "A simple toolkit to debug http2 client requests",
+  "main": "lib/index.js",
+  "bin": {
+    "http2-debug": "bin/http2-debug.js"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "mocha --recursive --reporter spec",
+    "watch-test": "mocha --recursive --watch --reporter spec",
+    "test-ci": "istanbul cover ./node_modules/mocha/bin/_mocha test/**/*.js --report lcovonly -- -R spec && cat ./coverage/lcov.info"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1",
+    "chai": "^4.1.2",
+    "chai-spies": "^1.0.0",
+    "istanbul": "0.4.5"
+  },
+  "keywords": [
+    "http2",
+    "http2 client",
+    "request"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hisco/http2-debug.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hisco/http2-debug/issues"
+  },
+  "homepage": "https://github.com/hisco",
+  "author": "Eyald <hisco@googlegroups.com‬>",
+  "license": "MIT"
+}
