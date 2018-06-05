@@ -68,7 +68,7 @@ http2-debug --host=10.10.90.210 --port=443 --key=./my-key.pem  --cert=./my-cert.
 docker run -p 8443:8443 hisco/http2-debug
 
 ```
-
+Registry link [Link to hub registry](https://hub.docker.com/r/hisco/http2-debug/)
 ## License
 
   [MIT](LICENSE)
