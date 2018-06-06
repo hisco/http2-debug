@@ -4,12 +4,12 @@ class Http2Debug{
         this.setModules()
     }
     setModules(){
-       this.tryToSeModule('http2');
-       this.tryToSeModule('fs');
-       this.tryToSeModule('os');
-       this.tryToSeModule('path');
+       this.tryToSetModule('http2');
+       this.tryToSetModule('fs');
+       this.tryToSetModule('os');
+       this.tryToSetModule('path');
     }
-    tryToSeModule(name){
+    tryToSetModule(name){
         try{
             this[name] = require(name);
         }
