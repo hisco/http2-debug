@@ -3,6 +3,8 @@ class Http2Debug{
     constructor(){
         this.setModules()
     }
+    log(){
+    }
     setModules(){
        this.tryToSetModule('http2');
        this.tryToSetModule('fs');
@@ -67,16 +69,16 @@ class Http2Debug{
                     headers,
                     body
                 },null, 2);
-                console.log(`<Request #${i++}>`,result )
+                this.log(`<Request #${i++}>`,result )
                 stream.end(result);
             })
             
         });
 
-        this.serverSocket = server.listen(config.port , config.host , ()=>{
-            console.log(`http-debug should be working on https://${config.host}:${config.port}`);
+        this.serverSocket = server.listen(config.port , config.host , (err)=>{
+            this.log(`http-debug should be working on https://${config.host}:${config.port}`);
             if (cb)
-                cb();
+                cb(err);
         });
     }
     stopServer(){
