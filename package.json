@@ -1,6 +1,6 @@
 {
   "name": "http2-debug",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "A simple toolkit to debug http2 client requests",
   "main": "src/index.js",
   "bin": {

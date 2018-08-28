@@ -43,6 +43,28 @@ class Http2Debug{
         return config;
         
     }
+    onStream(stream, headers){
+        let body = '';
+        stream.on('data' , (chunk)=>{
+            body+=chunk;
+        });
+        stream.on('end' , (chunk)=>{
+            if (chunk)
+                body+=chunk;
+
+            stream.respond({
+                'content-type': 'text/html',
+                ':status': 200
+            });
+            const result = JSON.stringify({
+                hostname : this.os.hostname(),
+                headers,
+                body
+            },null, 2);
+            this.log(`<Request #${i++}>`,result )
+            stream.end(result);
+        })
+    }
     createServer(cb){
         const config = this.getServerConfig();
         let i = 0;
@@ -52,27 +74,7 @@ class Http2Debug{
         });
         server.on('error', (err) => console.error(err));
         server.on('stream', (stream, headers) => {
-            let body = '';
-            stream.on('data' , (chunk)=>{
-                body+=chunk;
-            });
-            stream.on('end' , (chunk)=>{
-                if (chunk)
-                    body+=chunk;
-
-                stream.respond({
-                    'content-type': 'text/html',
-                    ':status': 200
-                });
-                const result = JSON.stringify({
-                    hostname : this.os.hostname(),
-                    headers,
-                    body
-                },null, 2);
-                this.log(`<Request #${i++}>`,result )
-                stream.end(result);
-            })
-            
+           this.onStream(stream,headers);
         });
 
         this.serverSocket = server.listen(config.port , config.host , (err)=>{

@@ -42,6 +42,26 @@ That's it you now have an HTTP2 server running with selfsigned certificate.
 Don't forget to enable security notice.
 By default server is lisening to 0.0.0.0:8443 .
 
+## Advanced usage
+For custom http response you can overide the default `onStream` method.
+Overide could be done by either inheritance from the debug server or by regular assignment.
+
+```js
+    class CustomHttpDebugServer extends Http2Debug{
+      onStream(stream , headers){
+        stream.respond({
+                'content-type': 'text/html',
+                ':status': 200
+        });
+        stream.end('hi');
+      }
+    }
+    const http2Debug = new CustomHttpDebugServer;
+    http2Debug.createServer((err)=>{
+        //...//
+    });
+```
+
 ## HTTP2 certificates
 To enable fast debuging, this module comes with a self signed certificate.
 To use it you must disable security warnings.
