@@ -1,5 +1,7 @@
 # HTTP2 debug
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hisco/http2-debug.svg)](https://greenkeeper.io/)
+
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 
