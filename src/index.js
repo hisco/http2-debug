@@ -1,7 +1,8 @@
 
 class Http2Debug{
     constructor(){
-        this.setModules()
+        this.setModules();
+        this.i = 0;
     }
     log(){
     }
@@ -61,13 +62,12 @@ class Http2Debug{
                 headers,
                 body
             },null, 2);
-            this.log(`<Request #${i++}>`,result )
+            this.log(`<Request #${this.i++}>`,result )
             stream.end(result);
         })
     }
     createServer(cb){
         const config = this.getServerConfig();
-        let i = 0;
         const server = this.http2.createSecureServer({
             key: this.fs.readFileSync(config.key),
             cert: this.fs.readFileSync(config.cert)
