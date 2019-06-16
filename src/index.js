@@ -38,8 +38,8 @@ class Http2Debug{
         const config = {
             port : parseInt( userRequest.port || process.env.HTTP2_PORT  || 8443),
             host : userRequest.host || process.env.HTTP2_HOST || '0.0.0.0',
-            key : userRequest.key || userRequest.HTTP2_TLS_PRIVATE_KEY || (this.path.join(__dirname , '..' , 'assets' , 'key.pem')),
-            cert : userRequest.cert || userRequest.HTTP2_TLS_CERT || (this.path.join(__dirname , '..' , 'assets' , 'cert.pem'))
+            key : userRequest.key || process.env.HTTP2_TLS_PRIVATE_KEY || (this.path.join(__dirname , '..' , 'assets' , 'key.pem')),
+            cert : userRequest.cert || process.env.HTTP2_TLS_CERT || (this.path.join(__dirname , '..' , 'assets' , 'cert.pem'))
         }
         return config;
         
