@@ -42,7 +42,7 @@ http2-debug
 
 That's it you now have an HTTP2 server running with selfsigned certificate.
 Don't forget to enable security notice.
-By default server is lisening to 0.0.0.0:8443 .
+By default server is listening to 0.0.0.0:8443 .
 
 ## Advanced usage
 For custom http response you can overide the default `onStream` method.
